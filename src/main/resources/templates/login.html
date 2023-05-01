@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>login</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" th:href="@{/login}">Registration</a>
+                <a class="navbar-brand" href="#" th:href="@{/}">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <form action="login" method="post" class="flex items-center  bg-gray-100 justify-center min-h-screen ">
+        <div class="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+
+            <div class="flex flex-col justify-center p-8 md:p-40">
+                <h1 class="mb-6 text-4xl font-bold">User Login Page</h1>
+
+                <div class="py-4">
+                    <span class="mb-2 text-md">Email</span>
+                    <input type="text"
+                        class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+                        name="username" id="username" />
+                </div>
+                <div class="py-4">
+                    <span class="mb-2 text-md">Password</span>
+                    <input type="password" name="password" id="password" class="form-control" />
+                </div>
+                <div class="py-4">
+
+                    <input type='submit' value='Login'
+                        class="  w-full bg-blue-600 text-white p-2 rounded-lg mb-6 hover:bg-blue-500  hover:text-black hover:border ">
+                    <!-- error message -->
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">Invalid username or password.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
